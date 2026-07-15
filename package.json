@@ -39,7 +39,6 @@
     "@hapi/boom": "*",
     "@ibaraki-douji/pixivts": "^2.4.1",
     "@whiskeysockets/baileys": "npm:@whiskeysockets/baileys",
-    "@starlights/scraper": "github:XdrianGM/Ba",
     "awesome-phonenumber": "^3.4.0",
     "axios": "*",
     "chalk": "^5.3.0",
