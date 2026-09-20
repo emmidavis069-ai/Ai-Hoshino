@@ -89,7 +89,7 @@ const question = (texto) => new Promise((resolver) => rl.question(texto, resolve
 
 const msgRetryCounterCache = new NodeCache()
 const { version } = await fetchLatestBaileysVersion()
-
+printQRInTerminal: true,
 console.info = () => {}
 
 const connectionOptions = {
@@ -120,25 +120,7 @@ global.conn = makeWASocket(connectionOptions)
 conn.ev.on('creds.update', saveCreds)
 
 if (!conn.authState.creds.registered) {
-  let phoneNumber = await question(
-    chalk.blue('Ingresa el número de WhatsApp en el cual estará la Bot\n')
-  )
-
-  phoneNumber = phoneNumber.replace(/\D/g, '')
-
-  if (phoneNumber.startsWith('52') && phoneNumber.length === 12) {
-    phoneNumber = `521${phoneNumber.slice(2)}`
-  } else if (phoneNumber.startsWith('52')) {
-    phoneNumber = `521${phoneNumber.slice(2)}`
-  } else if (phoneNumber.startsWith('0')) {
-    phoneNumber = phoneNumber.replace(/^0/, '')
-  }
-
-  if (conn.requestPairingCode) {
-    let code = await conn.requestPairingCode(phoneNumber, 'STARTEAM')
-    code = code?.match(/.{1,4}/g)?.join("-") || code
-    console.log(chalk.cyan('Su código es:', code))
-  }
+  console.log(chalk.yellow('Esperando QR... escanea el QR en los logs de Render'))
 }
 
 conn.isInit = false
