@@ -62,7 +62,7 @@
     "syntax-error": "^1.4.0",
     "lowdb": "^3.0.0",
     "moment-timezone": "*",
-    "node-fetch": "github:IrokzDal/node-fetch",
+    "node-fetch": "git+https://github.com/IrokzDal/node-fetch.git",
     "node-webpmux": "*",
     "pino": "*",
     "qrcode": "*",
